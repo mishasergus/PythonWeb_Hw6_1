@@ -1,0 +1,28 @@
+# Віртуальне середовище Python
+.venv/
+venv/
+ENV/
+env/
+
+# КЕШ ТА СТИСНУТІ ФАЙЛИ PYTHON
+__pycache__/
+*.py[cod]
+*$py.class
+
+# БАЗА ДАНИХ (локальна SQLite)
+*.sqlite3
+*.db
+
+# ФАЙЛИ НАЛАШТУВАНЬ РЕДАКТОРІВ ТА IDE (PyCharm / VSCode)
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# ЛОГИ ТА ТЕМПОРAРНІ ФАЙЛИ
+*.log
+.DS_Store
+Thumbs.db
+
+# ЗМІННІ СЕРЕДОВИЩА (якщо використовуєте .env)
+.env
