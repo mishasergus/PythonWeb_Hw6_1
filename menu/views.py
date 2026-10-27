@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect
 from .models import Dish
+from django.contrib import messages
 
 
 def home(request):
@@ -42,6 +43,7 @@ def dish_create(request):
             price=price,
             description=description
         )
+        messages.success(request, "Dish created sucessfuly")
         return redirect('menu:menu_list')
     return render(request, 'menu/dish_form.html')
 
@@ -79,6 +81,7 @@ def dish_delete(request):
         dish_id = request.POST.get('id')
         if dish_id:
             Dish.objects.filter(id=dish_id).delete()
+            messages.success(request, "Dish deleted sucessfuly")
     return redirect('menu:menu_list')
 
 

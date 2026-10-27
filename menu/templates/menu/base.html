@@ -20,6 +20,10 @@
         .btn-warning { background: #ffc107; color: black; }
         .btn-danger { background: #dc3545; color: white; }
         .actions { margin-top: 15px; display: flex; gap: 10px; }
+        .nav-right { margin-left: auto; color: white; display: flex; align-items: center; gap: 15px; }
+        .nav-right form { margin: 0; }
+        .nav-right button { background: none; border: 1px solid white; color: white;
+                            padding: 5px 12px; border-radius: 5px; cursor: pointer; }
 </style>
 </head>
 <body>
@@ -27,8 +31,26 @@
     <a href="{% url 'menu:home' %}">Головна</a>
     <a href="{% url 'menu:menu_list' %}">Меню</a>
     <a href="{% url 'menu:dish_create' %}">+ Додати страву</a>
+
+    <div class="nav-right">
+        {% if user.is_authenticated %}
+            <span>{{ user.username }}</span>
+            <form method="post" action='{% url "accounts:logout" %}'>
+                {% csrf_token %}
+                <button type="submit">Вийти</button>
+            </form>
+        {% else %}
+            <a href='{% url "accounts:login" %}'>Увійти</a>
+            <a href='{% url "accounts:register" %}'>Зареєструватися</a>
+        {% endif %}
+    </div>
 </nav>
 <main>
+        {% if messages %}
+        {% for message in messages %}
+            <div>{{message}}</div>
+        {% endfor %}
+        {% endif %}
         {% block content %}{% endblock %}
 </main>
 </body>
