@@ -24,6 +24,25 @@
         .nav-right form { margin: 0; }
         .nav-right button { background: none; border: 1px solid white; color: white;
                             padding: 5px 12px; border-radius: 5px; cursor: pointer; }
+        .auth-card { max-width: 440px; margin: 48px auto; padding: 32px;
+                     background: white; border-radius: 12px; box-shadow: 0 8px 24px rgba(70, 38, 20, 0.12); }
+        .auth-card h1 { margin: 0; color: #38251d; font-size: 28px; }
+        .auth-intro { margin: 8px 0 24px; color: #75665f; }
+        .auth-form p { margin: 0 0 18px; }
+        .auth-form label { display: block; margin-bottom: 7px; color: #38251d; font-weight: bold; }
+        .auth-form input { box-sizing: border-box; width: 100%; padding: 11px 12px;
+                           border: 1px solid #d8cec7; border-radius: 6px; font: inherit; }
+        .auth-form input:focus { outline: 2px solid #b22222; outline-offset: 1px; border-color: #b22222; }
+        .auth-form ul { margin: 6px 0 0; padding-left: 20px; color: #b22222; font-size: 14px; }
+        .auth-form .helptext { display: block; margin-top: 6px; color: #75665f; font-size: 13px; }
+        .auth-submit { width: 100%; margin-top: 4px; padding: 11px 15px; font-weight: bold; }
+        .auth-switch { margin: 22px 0 0; text-align: center; color: #75665f; }
+        .auth-switch a { color: #b22222; font-weight: bold; text-decoration: none; }
+        .auth-switch a:hover { text-decoration: underline; }
+        @media (max-width: 520px) {
+            .auth-card { margin: 24px auto; padding: 24px 20px; }
+            nav { padding: 12px 16px; flex-wrap: wrap; }
+        }
 </style>
 </head>
 <body>

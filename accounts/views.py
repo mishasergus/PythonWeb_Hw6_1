@@ -6,14 +6,10 @@ from django.shortcuts import render, redirect
 
 # Create your views here.
 def register(request):
-    if request.method == 'POST':
-        form = UserCreationForm(request.POST)
-        if form.is_valid():
-            user = form.save()
-            login(request, user)
-            messages.success(request, f"Hello {user.username}")
-            return redirect("menu:menu_list")
-        else:
-            form = UserCreationForm()
-            return render(request, "accounts/register.html", {"form": form})
-    return render(request, "accounts/register.html")
+    form = UserCreationForm(request.POST or None)
+    if request.method == 'POST' and form.is_valid():
+        user = form.save()
+        login(request, user)
+        messages.success(request, f"Hello {user.username}")
+        return redirect("menu:menu_list")
+    return render(request, "accounts/register.html", {"form": form})
